@@ -1,5 +1,18 @@
 # 快速开始
 
+::: tip
+如何快速开始搭建一个简单的wcs系统?
+:::
+
+## 场景搭建
+
+![alt text](../../public/imags/monitor-configuration.png)
+
+## 通讯连接配置
+
+在监控配置界面将左边的电控柜
+
+
 ## 设备协议配置
 
 创建协议类底层按协议类型字段顺序数据类型将`byte[]`转换成协议对象，协议类需实现两个标记接口`IDeviceProtocol` 、 设备状态标记接口`IState`
@@ -21,8 +34,6 @@ public class ConveryProtocol : IDeviceProtocol, IState
     public int ToNode { get; set; }
 }
 ```
-
-## 场景搭建
 
 ## 流程开发
 

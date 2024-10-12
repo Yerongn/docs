@@ -3,8 +3,10 @@
 ## 后端开发
 
 - [abp.vnext 文档地址：https://v3.cn.vuejs.org/](https://abp.io/docs/latest/)
-- [serilog 文档地址](https://serilog.net/)
-- [seq 文档地址](https://docs.datalust.co/docs/an-overview-of-seq)
+- [serilog 文档地址：https://serilog.net/](https://serilog.net/)
+- [seq 文档地址：https://docs.datalust.co/docs/an-overview-of-seq](https://docs.datalust.co/docs/an-overview-of-seq)
+- [ReactiveX 文档地址：https://reactivex.io/](https://reactivex.io/)
+- [sqlsugar 文档地址：https://www.donet5.com/Home/Doc](https://www.donet5.com/Home/Doc)
 
 ## 前端开发
 
