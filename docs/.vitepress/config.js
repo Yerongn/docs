@@ -4,7 +4,7 @@ export default {
     lang: "zh-CN",
     title: 'WCS-vNext 项目文档',
     description: '项目功能描述、使用说明、版本、路线图等',
-  
+    base: '/docs/',
     themeConfig: {
       // 主题级选项
       search: true,
