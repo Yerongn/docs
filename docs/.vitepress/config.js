@@ -5,9 +5,11 @@ export default {
     title: 'WCS-vNext 项目文档',
     description: '项目功能描述、使用说明、版本、路线图等',
     base: '/docs/',
+    markdown: {
+      lineNumbers: true
+    },
     themeConfig: {
       // 主题级选项
-      search: true,
       outline: "deep",
       outlineTitle: "导航目录",
       logo: '/logo.svg',
@@ -27,14 +29,14 @@ export default {
         sidebar: {
           "/home/": [
             {
-              text: "功能介绍",
+              text: "项目介绍",
               collapsed: false,
               items: [
                 { text: "简介", link: "/home/" },
-                { text: "技术选择", link: "/home/technology/" },
-                { text: "功能说明", link: "/home/describe/" },
+                { text: "功能介绍", link: "/home/describe/" },
+                { text: "快速开始", link: "/home/getting-started/" },
                 { text: "路线图", link: "/home/roadmap/" },
-                { text: "版本信息", link: "/home/version/" },
+                { text: "版本信息", link: "/home/version/" }
               ],
             },
             {
@@ -64,23 +66,23 @@ export default {
               collapsed: false,
               items: [
                 { text: "简介", link: "/config/" },
-                { text: "菜单配置", link: "/config/menu/" },
-                { text: "布局配置", link: "/config/layoutConfig/" },
-                { text: "字体图标", link: "/config/iconfont/" },
-                { text: "服务端交互", link: "/config/server/" },
-                { text: "vuex", link: "/config/vuex/" },
-                { text: "打包预览", link: "/config/build/" },
+                { text: "系统配置", link: "/config/sys/" },
+                { text: "监控配置", link: "/config/monitor/" },
+                { text: "场景搭建", link: "/config/communication/" },
+                { text: "业务开发", link: "/config/process/" },
+                { text: "规则配置", link: "/config/ruleEngine/" },
+                { text: "其他", link: "/config/build/" },
               ],
             },
             {
               text: "高级",
               collapsed: false,
               items: [
-                { text: "权限管理", link: "/config/power/" },
-                { text: "路由参数", link: "/config/route/" },
-                { text: "国际化", link: "/config/i18n/" },
+                { text: "日志追踪", link: "/config/log/" },
+                { text: "流程配置", link: "/config/route/" },
+                { text: "数据读写", link: "/config/readwrite/" },
                 { text: "标签页", link: "/config/tagsView/" },
-                { text: "内置指令", link: "/config/directive/" },
+                { text: "最佳实践", link: "/config/directive/" },
               ],
             },
             {
@@ -95,6 +97,9 @@ export default {
               ],
             },
           ],
+        },
+        search: {
+          provider: 'local'
         }
     }
   }

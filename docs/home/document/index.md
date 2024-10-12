@@ -3,6 +3,8 @@
 ## 后端开发
 
 - [abp.vnext 文档地址：https://v3.cn.vuejs.org/](https://abp.io/docs/latest/)
+- [serilog 文档地址](https://serilog.net/)
+- [seq 文档地址](https://docs.datalust.co/docs/an-overview-of-seq)
 
 ## 前端开发
 
