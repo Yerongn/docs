@@ -1,21 +1,18 @@
 # 快速开始
 
-::: tip
-如何快速开始搭建一个简单的wcs系统?
-:::
+## 1、搭建场景
 
-## 场景搭建
+根据实际项目在`设备监控->监控配置`完成搭建场景
 
 ![alt text](../../public/imags/monitor-configuration.png)
 
-## 通讯连接配置
+### 通讯连接配置
 
-在监控配置界面将左边的电控柜
+在监控配置界面将左边的电控柜拖入画布，侧边设备属性栏新增通信驱动、分组、设备协议
 
+### 设备协议配置
 
-## 设备协议配置
-
-创建协议类底层按协议类型字段顺序数据类型将`byte[]`转换成协议对象，协议类需实现两个标记接口`IDeviceProtocol` 、 设备状态标记接口`IState`
+在后端项目中协议文件夹中新增输送线任务协议类型，协议类需实现两个标记接口`IDeviceProtocol` 、 设备状态标记接口`IState`
 
 ```c#
 [Description("输送线任务数据协议")]
@@ -35,7 +32,22 @@ public class ConveryProtocol : IDeviceProtocol, IState
 }
 ```
 
-## 流程开发
+::: tip
+程序运行时，底层按协议类型字段顺序数据类型将`byte[]`转换成协议对象
+:::
+
+## 2、开发业务
+
+业务开发大致分为`工作流`和`后台任务`两种类型
+
+### 工作流
+
+> 一般为`设备触发一次性执行(设备到位处理流程)`或者`达成某些条件后重复执行的流程(设备状态就绪定时获取设备任务)`
+
+#### Step
+
+> Step 为流程中的一个步骤，开发完成后可以根据实际场景进行组合成业务流程。  
+流程步骤需继承`StepBodyBaseAsync`抽象基类，指定设备模型数据类型`ConveryModelDto`，实现抽象方法`HandleAsync`,方法`HandleAsync`里放置业务代码
 
 ```c#
 [ProcessAttribute(nameof(ConveryMove), "输送线移动")]
@@ -46,12 +58,18 @@ public class ConveryMove(ILoggerFactory loggerFactory, IReadWriteService readWri
 
     public async override Task HandleAsync(StepDto<ConveryModelDto> deviceInfo)
     {
-       // Handle
+       // 业务代码
     }
 }
 ```
 
-## 数据读写
+::: tip
+`Step`作为工作流中一个步骤，它应职责分明，实际业务与描述相符
+:::
+
+#### 数据读写
+
+> 底层做了封装，简化协议数据转换，设备服务查询等过程，支持使用`设备号`及对应的`数据类型`即可。  
 
 ```c#
 
@@ -78,10 +96,18 @@ var (succeeded, errors, cry1002) = await _readWriteService.ReadAsync<ConveryProt
 
 ```
 
-## 定时任务
+::: tip
 
+:::
+
+### 后台任务
+
+> 定时任务一般用于`wms任务分解`，`设备状态定时推送`,`led、智能电视等数据定时推送`等需要在程序运行后定时执行的任务。
+
+::: tip
 定时任务的实现有多种，`.net`自带的`BackgroundService`,自己实现,abp自身也有 `BackgroundWorker`
 项目主要使用Quartz.Net 库。[开源地址](https://github.com/quartznet/quartznet)
+:::
 
 ```c#
 public class WmsTaskDisassembleJob : QuartzBackgroundWorkerBase
@@ -102,9 +128,39 @@ public class WmsTaskDisassembleJob : QuartzBackgroundWorkerBase
 
     public override async Task Execute(IJobExecutionContext context)
     {
-        //业务逻辑
+        // 定时任务 逻辑
     }
 }
 ```
 
-## 流程配置
+## 3、业务配置
+
+流程步骤`Step`开发完成就可以进行`业务流程搭建`、`流程触发规则配置`，完成这两项就可以运行程序进行验证。
+
+### 业务流程搭建
+
+流程搭建
+
+#### 开始
+
+每个流程都有个开始流程，开始流程可以选择流程每个步骤流转`设备模型数据`。
+
+#### 业务流程
+
+为后端业务代码继承了`StepBodyBaseAsync` 的业务类型
+
+#### 分支
+
+提供分支控制功能，接入分支节点，可以对分支连出去的线条进行编辑，设置`分支条件`
+
+``` c#
+data.Model.TaskNo>1000
+```
+
+#### 重复执行
+
+可配置`时间间隔`和`结束条件`，接入重复执行节点，该节点后的流程都将根据`时间间隔`重复执行直到满足`结束条件`
+
+### 流程触发规则配置
+
+配置流程触发规则,如输送线货物到位触发`输送线_任务完成业务`， 输送线`目标地址`等于输送线的`设备编号`时表示设备到位，我们可以配置规则表达式为`ToNode=='设备编号'`,满足条件后触发的业务为`输送线_任务完成业务`。

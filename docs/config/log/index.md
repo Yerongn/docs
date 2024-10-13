@@ -67,6 +67,10 @@ public class ConveryCheck(ILoggerFactory loggerFactory,
 
 seq 支持多种查询方式
 
+### 监控界面
+
+监控界面双击设备，设备日志页签可以显示设备近期发生的日志信息，方便快速定位正在发生的异常。
+
 ## 审计日志
 
 审计日志记录用户的操作行为,帮助排查问题
