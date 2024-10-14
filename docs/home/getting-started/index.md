@@ -166,3 +166,10 @@ data.Model.TaskNo>1000
 配置流程触发规则,如输送线货物到位触发`输送线_任务完成业务`， 输送线`目标地址`等于输送线的`设备编号`时表示设备到位，我们可以配置规则表达式为`ToNode=='设备编号'`,满足条件后触发的业务为`输送线_任务完成业务`。
 
 ### 4、运行效果
+
+- 设备监控
+![alt text](../../imags/monitor.png)
+- 设备信息
+![alt text](../../imags/device-info.png)
+- 设备运行日志
+![alt text](../../imags/device-log.png)

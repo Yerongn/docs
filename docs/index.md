@@ -25,13 +25,13 @@ features:
   - icon: 💖
     title: 规则引擎
     details: 使用规则引擎配合可视化工作流配置，提高业务可读性、复用性、降低业务耦合
-  - icon: 👍
+  - icon: 🛠️
     title: 权限管理
     details: 支持 rbac 权限控制
   - icon: 🚧
     title: 问题定位
     details: 使用  sierllog + Seq 结构化应用程序日志和跟踪的实时搜索和分析服务器，可以进行日志快速索引追踪
-  - icon: 💯
+  - icon: 💯 
     title: 集成仿真测试
     details: 利用已搭建wcs场景，扩展仿真业务搭建，配合各设备仿真模拟，快速简便的进行项目验证
 ---

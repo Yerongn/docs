@@ -72,8 +72,47 @@ public class ConveryCheck(ILoggerFactory loggerFactory,
 - 设备日志查询  
   直接使用`DeviceNo='查询设备号'`即可查询该设备日志信息
 
+```js
+14 Oct 2024 14:34:03.555
+ 设备:1007,写入数据:{'$type': 'ConveryProtocol', Barcode: 0, FromNode: 0, TaskNo: 0, ToNode: 0} 成功.
+14 Oct 2024 14:34:01.518
+ 设备：1007 流程:【1007_移动】- bc1ddce4-64d1-4a0a-8778-ac90626bf45a,开始执行。
+14 Oct 2024 14:34:01.517
+ 设备:1007,写入数据:{'$type': 'ConveryProtocol', Barcode: 1, FromNode: 1, TaskNo: 10001, ToNode: 1008} 成功.
+```
+
+还可以使用`任务号`等信息进行查询，输入`Data.TaskNo = 10001`
+
+```js
+14 Oct 2024 14:34:03.555
+ 设备:1008,写入数据:{'$type': 'ConveryProtocol', Barcode: 1, FromNode: 1, TaskNo: 10001, ToNode: 1008} 成功.
+14 Oct 2024 14:34:01.517
+ 设备:1007,写入数据:{'$type': 'ConveryProtocol', Barcode: 1, FromNode: 1, TaskNo: 10001, ToNode: 1008} 成功.
+14 Oct 2024 14:33:59.483
+ 设备:1006,写入数据:{'$type': 'ConveryProtocol', Barcode: 1, FromNode: 1, TaskNo: 10001, ToNode: 1008} 成功.
+14 Oct 2024 14:33:57.454
+ 设备:1005,写入数据:{'$type': 'ConveryProtocol', Barcode: 1, FromNode: 1, TaskNo: 10001, ToNode: 1008} 成功.
+14 Oct 2024 14:33:55.410
+ 设备:1004,写入数据:{'$type': 'ConveryProtocol', Barcode: 1, FromNode: 1, TaskNo: 10001, ToNode: 1008} 成功.
+```
+
 - 业务流程日志查询  
-  根据流程id查询流程相关日志
+  根据流程id查询流程相关日志，输入`WorkflowId = '99b968b7-894c-4c9c-b210-986fa5388028'` 
+
+``` js
+14 Oct 2024 14:34:01.518
+ - Step ea3f73bd-f5c4-4741-be86-d5d4b607ec9c_输送线移动 completed in 0:00:02.1128639
+14 Oct 2024 14:34:01.518
+ - Step 048a1020-6252-48c7-b899-91e010620e2e_Saga completed in 0:00:02.114649
+14 Oct 2024 14:34:01.518
+ Workflow 输送线移动 completed in 0:00:02.1153463
+14 Oct 2024 14:34:01.517
+ 设备:1007,写入数据:{'$type': 'ConveryProtocol', Barcode: 1, FromNode: 1, TaskNo: 10001, ToNode: 1008} 成功.
+14 Oct 2024 14:34:01.517
+ 设备:1006,写入数据:{'$type': 'ConveryProtocol', Barcode: 0, FromNode: 0, TaskNo: 0, ToNode: 0} 成功.
+14 Oct 2024 14:33:59.484
+ 设备：1006 流程:【1006_移动】- 99b968b7-894c-4c9c-b210-986fa5388028,开始执行。
+```
 
 ## 审计日志
 
