@@ -1,7 +1,7 @@
 # 通讯配置
 
 ::: tip Describe
-支持西门子s7 通讯、socket 通讯，socket通讯支持底层分包等功能。 <br>
+支持西门子s7 通讯、socket 通讯，socket通讯支持底层分包等功能。
 :::
 
 ## 设备协议配置

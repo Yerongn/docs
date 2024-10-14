@@ -4,7 +4,7 @@
 
 根据实际项目在`设备监控->监控配置`完成搭建场景
 
-![alt text](../../public/imags/monitor-configuration.png)
+![alt text](../../imags/monitor-configuration.png)
 
 ### 通讯连接配置
 
@@ -141,15 +141,15 @@ public class WmsTaskDisassembleJob : QuartzBackgroundWorkerBase
 
 流程搭建
 
-#### 开始
+- 开始
 
-每个流程都有个开始流程，开始流程可以选择流程每个步骤流转`设备模型数据`。
+每个流程都有且只有一个开始流程，开始流程可以选择流程每个步骤流转`设备模型数据`。
 
-#### 业务流程
+- 业务流程
 
 为后端业务代码继承了`StepBodyBaseAsync` 的业务类型
 
-#### 分支
+- 分支
 
 提供分支控制功能，接入分支节点，可以对分支连出去的线条进行编辑，设置`分支条件`
 
@@ -157,10 +157,12 @@ public class WmsTaskDisassembleJob : QuartzBackgroundWorkerBase
 data.Model.TaskNo>1000
 ```
 
-#### 重复执行
+- 重复执行
 
 可配置`时间间隔`和`结束条件`，接入重复执行节点，该节点后的流程都将根据`时间间隔`重复执行直到满足`结束条件`
 
 ### 流程触发规则配置
 
 配置流程触发规则,如输送线货物到位触发`输送线_任务完成业务`， 输送线`目标地址`等于输送线的`设备编号`时表示设备到位，我们可以配置规则表达式为`ToNode=='设备编号'`,满足条件后触发的业务为`输送线_任务完成业务`。
+
+### 4、运行效果

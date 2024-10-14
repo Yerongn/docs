@@ -4,18 +4,21 @@ layout: home
 hero:
   name: wcs-vnext
   text: 项目指导文档
-  tagline: 快速、易用、可靠
+  tagline: 高效、易用、可靠
   actions:
     - theme: brand
-      text: 立即上手
-      link: /config/
+      text: 什么是wcs-vnext?
+      link: /home/describe/
+    - theme: alt
+      text: 快速开始
+      link: /home/getting-started/
     - theme: alt
       text: 了解更多
       link: /home/
 features:
   - icon: 🚀
     title: 快速搭建
-    details: 拖拉拽完成场景搭建，搭建过程引导通讯及业务配置
+    details: 拖拉拽完成场景、业务流程的搭建，搭建过程引导通讯及业务配置
   - icon: 🚩
     title: 常见设备通讯协议集成
     details: s7、socket、
