@@ -131,6 +131,41 @@ export default {
                 { text: "其它问题", link: "/config/config/" },
               ],
             },
+          ],
+          "/deployment/":[
+            {
+              text: "部署",
+              collapsed: false,
+              items: [
+                { text: "简介", link: "/deployment/" },
+                { text: "Nginx", link: "/deployment/sys/" },
+                { text: "监控配置", link: "/config/monitor/" },
+                { text: "场景搭建", link: "/config/communication/" },
+                { text: "规则配置", link: "/config/ruleEngine/" },
+              ],
+            },
+            {
+              text: "Docker",
+              collapsed: false,
+              items: [
+                { text: "Nginx", link: "/deployment/nginx/" },
+                { text: "流程开发", link: "/config/log/" },
+                { text: "通讯协议集成", link: "/config/log/" },
+                { text: "数据订阅", link: "/config/log/" },
+                { text: "最佳实践", link: "/config/best-practices/" },
+              ],
+            },
+            {
+              text: "Windows",
+              collapsed: false,
+              items: [
+                { text: "数据可视化", link: "/config/config/" },
+                { text: "工具类集合", link: "/config/config/" },
+                { text: "第三方插件使用", link: "/config/config/" },
+                { text: "内置插件的使用", link: "/config/config/" },
+                { text: "其它问题", link: "/config/config/" },
+              ],
+            },
           ]
         },
         search: {
